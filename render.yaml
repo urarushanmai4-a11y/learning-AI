@@ -1,0 +1,13 @@
+
+services:
+  - type: web
+    name: learning-ai
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: FLASK_SECRET
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
